@@ -15,7 +15,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body id="main-content">
 		<slot />
 	</body>
 </html>
@@ -25,11 +25,18 @@ const { title } = Astro.props;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
 	}
 	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+		background-color: rgba(33, 39, 55);
+		font-family: IBM Plex Mono,monospace;
+		color: rgba(234, 237, 243);
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
+	#main-content {
+    @apply mx-auto w-full max-w-3xl px-4;
+  }
 </style>
